@@ -1,0 +1,25 @@
+<mdc-dialog class="show-todo">
+  <mdc-dialog-container>
+    <mdc-dialog-surface>
+      <mdc-dialog-title>{{ todo.label | uppercase }}</mdc-dialog-title>
+      <mdc-dialog-content>
+        <mdc-list interactive="false">
+          <mdc-list-item>
+            <strong>Tag : </strong>
+            <mdc-chip secondary class="show-todo__chip ml:2@xs">
+              <mdc-chip-text>{{ todo.tag | lowercase }}</mdc-chip-text>
+            </mdc-chip>
+          </mdc-list-item>
+          <mdc-list-item>
+            <p>
+              <strong>Date : </strong>{{ todo.date | date: 'MMMM dd, yyyy' }}
+            </p>
+          </mdc-list-item>
+        </mdc-list>
+      </mdc-dialog-content>
+      <mdc-dialog-actions>
+        <button mdcDialogButton mdcDialogAction="close" title="OK">OK</button>
+      </mdc-dialog-actions>
+    </mdc-dialog-surface>
+  </mdc-dialog-container>
+</mdc-dialog>

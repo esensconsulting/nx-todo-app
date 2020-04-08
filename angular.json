@@ -22,8 +22,11 @@
             "tsConfig": "apps/todo/tsconfig.app.json",
             "aot": true,
             "assets": ["apps/todo/src/favicon.ico", "apps/todo/src/assets"],
-            "styles": ["apps/todo/src/styles.scss"],
-            "scripts": []
+            "styles": ["apps/todo/src/assets/sass/main.scss"],
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["apps/todo/src/styles", "node_modules"]
+            }
           },
           "configurations": {
             "production": {

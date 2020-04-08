@@ -1,0 +1,21 @@
+@use "../abstracts/variables";
+
+@use "~@material/theme" with (
+  $primary: variables.$color-primary,
+  $secondary: variables.$color-accent,
+  $error: variables.$color-error,
+  $on-primary: variables.$color-text,
+  $on-secondary: variables.$color-text
+);
+
+@use "~@material/button/mdc-button";
+@use "~@material/card/mdc-card";
+@use "~@material/checkbox/mdc-checkbox";
+@use "~@material/chips/mdc-chips";
+@use "~@material/dialog/mdc-dialog";
+@use "~@material/elevation/mdc-elevation";
+@use "~@material/fab/mdc-fab";
+@use "~@material/icon-button/mdc-icon-button";
+@use "~@material/list/mdc-list";
+@use "~@material/textfield/mdc-text-field";
+@use "~@material/typography/mdc-typography";

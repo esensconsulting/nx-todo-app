@@ -1,0 +1,74 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+@use '~@material/icon-button/_index' as icon-button;
+@use '~@material/theme';
+
+.list-todo {
+  height: 100vh;
+  background-color: theme.$primary;
+  overflow: hidden;
+
+  &__logo {
+    text-decoration: none;
+    color: variables.$color-text;
+    text-align: center;
+
+    & > img {
+      width: 200px;
+      height: auto;
+    }
+  }
+
+  &__card {
+    padding: 2rem 2rem 2.5rem;
+    position: relative;
+    max-height: calc(100vh - 6rem);
+  }
+
+  &__list {
+    overflow-y: auto;
+  }
+
+  &__list-item {
+    height: 82px !important;
+
+    .mdc-list-item__primary-text {
+      margin-bottom: -10px !important;
+    }
+
+    .mdc-list-item__text {
+      max-width: calc(100% - 232px);
+
+      @media (max-width: map_get(map_get(variables.$breakpoints, 'md'), 'begin')) {
+        max-width: calc(100% - 120px);
+      }
+    }
+  }
+
+  &__list-item > &__list-item-label--checked {
+    text-decoration: line-through;
+  }
+
+  &__list-item-actions > &__btn:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  &__list-item-actions > &__btn {
+    @include mixins.noselect;
+  }
+
+  &__btn {
+    &--add {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+
+    &--show,
+    &--edit,
+    &--delete {
+      @include icon-button.ink-color(theme.$secondary);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@use '@material/chips/_index' as chips;
+@use "@material/theme";
+
+.show-todo {
+  &__chip {
+    @include chips.fill-color(theme.$secondary);
+  }
+}

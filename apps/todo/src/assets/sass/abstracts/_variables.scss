@@ -1,0 +1,45 @@
+// THEMES
+$color-primary: #5d6083;
+$color-primary-dark: #323656;
+$color-primary-light: #8b8db3;
+$color-accent: #f28f5d;
+$color-primary-text: #212121;
+$color-secondary-text: #757575;
+$color-divider: #bdbdbd;
+$color-text: #ffffff;
+$color-error: #b00020;
+
+// STATUS
+$error: #b00020;
+$warning: #ff6f00;
+$success: #1b5e20;
+
+// BASE
+$color-white: #ffffff;
+$color-black: #000000;
+
+// FONT
+$default-font-size: 1rem;
+
+$breakpoints: (
+  xs: (
+    begin: 0,
+    end: 599.99px
+  ),
+  sm: (
+    begin: 600px,
+    end: 959.99px
+  ),
+  md: (
+    begin: 960px,
+    end: 1279.99px
+  ),
+  lg: (
+    begin: 1280px,
+    end: 1919.99px
+  ),
+  xl: (
+    begin: 1920px,
+    end: 4999.99px
+  )
+) !default;

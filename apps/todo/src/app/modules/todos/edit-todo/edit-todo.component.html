@@ -1,0 +1,55 @@
+<mdc-dialog>
+  <mdc-dialog-container>
+    <mdc-dialog-surface>
+      <mdc-dialog-title>Edit a TODO</mdc-dialog-title>
+      <mdc-dialog-content>
+        <form
+          [formGroup]="editForm"
+          id="editAlarmForm"
+          (ngSubmit)="onSubmit()"
+          autocomplete="off"
+          fxLayout="column"
+        >
+          <mdc-form-field fluid class="mt:3@xs">
+            <mdc-text-field
+              label="Label"
+              formControlName="label"
+              type="text"
+              outlined
+              required
+            ></mdc-text-field>
+            <mdc-helper-text persistent validation>*Required</mdc-helper-text>
+          </mdc-form-field>
+
+          <mdc-form-field fluid class="mt:3@xs">
+            <mdc-text-field
+              label="Date"
+              formControlName="date"
+              type="date"
+              outlined
+              required
+            ></mdc-text-field>
+            <mdc-helper-text persistent validation>*Required</mdc-helper-text>
+          </mdc-form-field>
+
+          <mdc-form-field fluid class="mt:3@xs">
+            <mdc-text-field
+              label="Tag"
+              formControlName="tag"
+              type="text"
+              outlined
+              required
+            ></mdc-text-field>
+            <mdc-helper-text persistent validation>*Required</mdc-helper-text>
+          </mdc-form-field>
+        </form>
+      </mdc-dialog-content>
+      <mdc-dialog-actions>
+        <button mdcDialogButton mdcDialogAction="close" title="Cancel">
+          Cancel
+        </button>
+        <button mdcDialogButton form="editAlarmForm" title="Edit">Edit</button>
+      </mdc-dialog-actions>
+    </mdc-dialog-surface>
+  </mdc-dialog-container>
+</mdc-dialog>
