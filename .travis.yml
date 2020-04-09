@@ -1,0 +1,29 @@
+dist: bionic
+language: node_js
+node_js:
+  - '10'
+  - '12'
+  - '13'
+
+os:
+  - linux
+
+cache:
+  directories:
+    - ./node_modules
+
+services:
+  - docker
+
+install:
+  - npm install --no-progress
+
+script:
+  - npm run lint
+  - npm run prettier:check
+  - npm run test
+  - cp .env.dist .env
+  - docker-compose up -d --build postgres
+  - docker ps -a
+  - npm run e2e
+  - npm run build
