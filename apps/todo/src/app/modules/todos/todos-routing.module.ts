@@ -9,11 +9,11 @@ const routes: Routes = [
   { path: 'list', component: ListTodoComponent },
   { path: 'add', component: AddTodoComponent },
   { path: 'edit', component: EditTodoComponent },
-  { path: 'show', component: ShowTodoComponent }
+  { path: 'show', component: ShowTodoComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class TodosRoutingModule {}

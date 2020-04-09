@@ -12,20 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SortByDatePipe } from '../../pipes/sort-by-date.pipe';
 
 @NgModule({
-  declarations: [
-    ListTodoComponent,
-    AddTodoComponent,
-    EditTodoComponent,
-    ShowTodoComponent,
-    SortByDatePipe
-  ],
+  declarations: [ListTodoComponent, AddTodoComponent, EditTodoComponent, ShowTodoComponent, SortByDatePipe],
   exports: [ListTodoComponent],
-  imports: [
-    CommonModule,
-    MdcModule,
-    FlexLayoutModule,
-    TodosRoutingModule,
-    ReactiveFormsModule
-  ]
+  imports: [CommonModule, MdcModule, FlexLayoutModule, TodosRoutingModule, ReactiveFormsModule],
 })
 export class TodosModule {}

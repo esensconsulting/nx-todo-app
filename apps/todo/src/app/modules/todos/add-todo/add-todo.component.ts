@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'nx-todo-app-add-todo',
-  templateUrl: './add-todo.component.html'
+  templateUrl: './add-todo.component.html',
 })
 export class AddTodoComponent implements OnInit {
   public addForm: FormGroup;
@@ -12,7 +12,7 @@ export class AddTodoComponent implements OnInit {
   constructor(
     private dialogRef: MdcDialogRef<AddTodoComponent>,
     @Inject(MDC_DIALOG_DATA) public data: any,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {}
 
   // get the form short name to access the form fields
@@ -24,7 +24,7 @@ export class AddTodoComponent implements OnInit {
     this.addForm = this.formBuilder.group({
       date: ['', Validators.required],
       label: ['', Validators.required],
-      tag: ['', Validators.required]
+      tag: ['', Validators.required],
     });
   }
 

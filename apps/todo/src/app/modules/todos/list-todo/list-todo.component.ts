@@ -10,7 +10,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'nx-todo-app-list-todo',
-  templateUrl: './list-todo.component.html'
+  templateUrl: './list-todo.component.html',
 })
 export class ListTodoComponent implements OnInit {
   public todos: Todo[] = [];
@@ -19,7 +19,7 @@ export class ListTodoComponent implements OnInit {
     private dialog: MdcDialog,
     public todosService: TodoService,
     public deviceService: DeviceService,
-    public deviceDetectorService: DeviceDetectorService
+    public deviceDetectorService: DeviceDetectorService,
   ) {}
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class ListTodoComponent implements OnInit {
   public add(): void {
     const dialogRef = this.dialog.open(AddTodoComponent, {
       clickOutsideToClose: true,
-      escapeToClose: true
+      escapeToClose: true,
     });
 
     dialogRef.afterClosed().subscribe((todo: Todo) => {
@@ -46,7 +46,7 @@ export class ListTodoComponent implements OnInit {
     const dialogRef = this.dialog.open(EditTodoComponent, {
       data: { todo: todo },
       clickOutsideToClose: true,
-      escapeToClose: true
+      escapeToClose: true,
     });
 
     dialogRef.afterClosed().subscribe((output: Todo) => {
@@ -54,14 +54,14 @@ export class ListTodoComponent implements OnInit {
         return;
       }
 
-      const index = this.todos.findIndex(obj => obj === todo);
+      const index = this.todos.findIndex((obj) => obj === todo);
       this.todos.splice(index, 1, output);
       this.todosService.save(this.todos);
     });
   }
 
   public delete(todo: Todo): void {
-    this.todos = this.todos.filter(obj => obj !== todo);
+    this.todos = this.todos.filter((obj) => obj !== todo);
     this.todosService.save(this.todos);
   }
 
@@ -69,7 +69,7 @@ export class ListTodoComponent implements OnInit {
     this.dialog.open(ShowTodoComponent, {
       data: { todo: todo },
       clickOutsideToClose: true,
-      escapeToClose: true
+      escapeToClose: true,
     });
   }
 }

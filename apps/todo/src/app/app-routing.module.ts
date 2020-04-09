@@ -4,10 +4,9 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 const routes: Routes = [
   {
     path: 'todos',
-    loadChildren: () =>
-      import('./modules/todos/todos.module').then(m => m.TodosModule)
+    loadChildren: () => import('./modules/todos/todos.module').then((m) => m.TodosModule),
   },
-  { path: '**', redirectTo: 'todos' }
+  { path: '**', redirectTo: 'todos' },
 ];
 
 @NgModule({
@@ -15,9 +14,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       useHash: true,
       onSameUrlNavigation: 'reload',
-      preloadingStrategy: PreloadAllModules
-    })
+      preloadingStrategy: PreloadAllModules,
+    }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

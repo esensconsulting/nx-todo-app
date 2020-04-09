@@ -12,7 +12,7 @@ import {
   MdcListModule,
   MdcMenuModule,
   MdcTextFieldModule,
-  MdcTypographyModule
+  MdcTypographyModule,
 } from '@angular-mdc/web';
 
 @NgModule({
@@ -28,7 +28,7 @@ import {
     MdcTextFieldModule,
     MdcIconButtonModule,
     MdcChipsModule,
-    MdcMenuModule
-  ]
+    MdcMenuModule,
+  ],
 })
 export class MdcModule {}

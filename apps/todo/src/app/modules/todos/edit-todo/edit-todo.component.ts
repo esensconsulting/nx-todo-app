@@ -4,7 +4,7 @@ import { MDC_DIALOG_DATA, MdcDialogRef } from '@angular-mdc/web';
 
 @Component({
   selector: 'nx-todo-app-edit-todo',
-  templateUrl: './edit-todo.component.html'
+  templateUrl: './edit-todo.component.html',
 })
 export class EditTodoComponent implements OnInit {
   public editForm: FormGroup;
@@ -12,7 +12,7 @@ export class EditTodoComponent implements OnInit {
   constructor(
     private dialogRef: MdcDialogRef<EditTodoComponent>,
     @Inject(MDC_DIALOG_DATA) public data: any,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {}
 
   // get the form short name to access the form fields
@@ -24,7 +24,7 @@ export class EditTodoComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       date: ['', Validators.required],
       label: ['', Validators.required],
-      tag: ['', Validators.required]
+      tag: ['', Validators.required],
     });
 
     if (this.data.hasOwnProperty('todo') && this.data.todo) {

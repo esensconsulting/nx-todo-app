@@ -2,11 +2,9 @@ import { Injectable } from '@angular/core';
 import { Todo } from '../../models/todo.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodoService {
-  constructor() {}
-
   public save(todos: Todo[]): void {
     try {
       if (window.localStorage) {

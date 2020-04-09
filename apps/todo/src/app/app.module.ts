@@ -8,13 +8,8 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    MdcModule,
-    TodosModule,
-    DeviceDetectorModule.forRoot()
-  ],
+  imports: [BrowserModule, MdcModule, TodosModule, DeviceDetectorModule.forRoot()],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

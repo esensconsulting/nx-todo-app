@@ -1,0 +1,4 @@
+{
+  "{apps,libs,tools}/**/*.ts": ["npm run eslint:fix"],
+  "./**/*.{ts,js,json,*rc}": ["npm run prettier:write"]
+}
