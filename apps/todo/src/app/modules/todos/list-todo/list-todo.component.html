@@ -8,13 +8,13 @@
   <div fxLayout="row" fxLayoutAlign="center center">
     <mdc-card class="list-todo__card" fxFlex.lt-md="90" fxFlex.md="70" fxFlex.lg="60" fxFlex.xl="40">
       <div mdcHeadline3 class="mb:3@xs">Todo list</div>
-      <mdc-list class="list-todo__list" twoLine interactive="false">
+      <mdc-list class="list-todo__list" interactive="false">
         <ng-container *ngFor="let todo of todos; let i = index; trackBy: trackById">
-          <mdc-list-item class="list-todo__list-item" [disabled]="checkbox.checked">
-            <mdc-checkbox class="mr:3@xs" #checkbox></mdc-checkbox>
+          <mdc-list-item class="list-todo__list-item" [disabled]="todo.checked">
+            <mdc-checkbox class="mr:3@xs" [ngModel]="todo.checked" (ngModelChange)="handleCheckboxClicked(todo, $event)"></mdc-checkbox>
             <mdc-list-item-text
               class="list-todo__list-item-label"
-              [class.list-todo__list-item-label--checked]="checkbox.checked"
+              [class.list-todo__list-item-label--checked]="todo.checked"
               secondaryText="{{ todo.date | date: 'MMMM dd, yyyy' }}"
               >{{ todo.label }}</mdc-list-item-text
             >
@@ -49,7 +49,7 @@
                   icon="more_vert"
                   (click)="listItemActionsMenu.open = !listItemActionsMenu.open"
                 ></button>
-                <mdc-menu #listItemActionsMenu [anchorElement]="listItemActionsAnchor" fixed>
+                <mdc-menu fixed #listItemActionsMenu [anchorElement]="listItemActionsAnchor">
                   <mdc-list>
                     <mdc-list-item title="Show more" (click)="show(todo)">Show more</mdc-list-item>
                     <mdc-list-item title="Edit" (click)="edit(todo)">Edit</mdc-list-item>

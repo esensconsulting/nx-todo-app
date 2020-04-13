@@ -10,6 +10,7 @@ CREATE TABLE public.todo_entity
     id uuid NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
     label text COLLATE pg_catalog."default",
     tag text COLLATE pg_catalog."default",
+    checked boolean DEFAULT false,
     CONSTRAINT todo_entity_pkey PRIMARY KEY (id)
 )
 

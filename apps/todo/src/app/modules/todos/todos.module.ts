@@ -8,11 +8,11 @@ import { EditTodoComponent } from './edit-todo/edit-todo.component';
 import { ShowTodoComponent } from './show-todo/show-todo.component';
 import { MdcModule } from '../../mdc.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ListTodoComponent, AddTodoComponent, EditTodoComponent, ShowTodoComponent],
   exports: [ListTodoComponent],
-  imports: [CommonModule, MdcModule, FlexLayoutModule, TodosRoutingModule, ReactiveFormsModule],
+  imports: [CommonModule, MdcModule, FlexLayoutModule, TodosRoutingModule, ReactiveFormsModule, FormsModule],
 })
 export class TodosModule {}

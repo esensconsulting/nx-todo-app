@@ -3,4 +3,5 @@ export interface Todo {
   label: string;
   date: Date;
   tag: string;
+  checked?: boolean;
 }

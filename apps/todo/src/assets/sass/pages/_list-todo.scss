@@ -37,6 +37,7 @@
     }
 
     .mdc-list-item__text {
+      align-self: flex-start;
       max-width: calc(100% - 232px);
 
       @media (max-width: map_get(map_get(variables.$breakpoints, 'md'), 'begin')) {

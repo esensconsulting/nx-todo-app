@@ -19,4 +19,8 @@ export class TodoEntity implements Todo {
   @ApiProperty()
   @Column()
   tag: string;
+
+  @ApiProperty()
+  @Column()
+  checked: boolean;
 }

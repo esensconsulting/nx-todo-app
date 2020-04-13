@@ -66,9 +66,9 @@ export class ListTodoComponent implements OnInit {
     this.ngOnInit();
   }
 
-  public show(todo: Todo): void {
+  public async show(todo: Todo): Promise<void> {
     this.dialog.open<ShowTodoComponent, Todo>(ShowTodoComponent, {
-      data: todo,
+      data: await this.todosService.get(todo.id),
       clickOutsideToClose: true,
       escapeToClose: true,
     });
@@ -76,5 +76,11 @@ export class ListTodoComponent implements OnInit {
 
   public trackById(index: number, item: Todo): any {
     return item.id;
+  }
+
+  public async handleCheckboxClicked(todo: Todo, checked: boolean): void {
+    todo.checked = checked;
+    await this.todosService.update(todo.id, todo);
+    this.ngOnInit();
   }
 }
