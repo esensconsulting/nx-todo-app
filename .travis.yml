@@ -11,6 +11,8 @@ os:
 cache:
   directories:
     - ./node_modules
+    - ~/.npm
+    - ~/.cache
 
 services:
   - docker

@@ -78,7 +78,7 @@ export class ListTodoComponent implements OnInit {
     return item.id;
   }
 
-  public async handleCheckboxClicked(todo: Todo, checked: boolean): void {
+  public async handleCheckboxClicked(todo: Todo, checked: boolean): Promise<void> {
     todo.checked = checked;
     await this.todosService.update(todo.id, todo);
     this.ngOnInit();
