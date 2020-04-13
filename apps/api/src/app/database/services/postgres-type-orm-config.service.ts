@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class PostgresTypeOrmConfigService implements TypeOrmOptionsFactory {
@@ -16,6 +17,12 @@ export class PostgresTypeOrmConfigService implements TypeOrmOptionsFactory {
       database: this.configService.get<string>('database.database'),
       entities: this.configService.get<string[]>('orm.entities'),
       synchronize: this.configService.get<boolean>('orm.synchronize'),
+      migrationsTableName: this.configService.get<string>('orm.migrationsTableName'),
+      migrations: this.configService.get<string[]>('orm.migrations'),
+      cli: {
+        migrationsDir: this.configService.get<string>('cli.migrationsDir'),
+      },
+      ssl: environment.production,
     };
   }
 }

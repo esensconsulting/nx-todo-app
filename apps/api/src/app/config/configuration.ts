@@ -1,6 +1,7 @@
-import { resolve } from 'path';
+import { join } from 'path';
+import { TodoEntity } from '../todo/todo.entity';
 
-const SOURCE_PATH = resolve(__dirname, '..', '.');
+const SOURCE_PATH = join(__dirname, '..', '**', '*.entity{.ts,.js}');
 
 export default () => ({
   port: parseInt(process.env.PORT, 10) || 3333,
@@ -12,7 +13,12 @@ export default () => ({
     database: process.env.POSTGRES_DB,
   },
   orm: {
-    entities: [`${SOURCE_PATH}/**/*.entity.ts`],
+    entities: [TodoEntity], // SOURCE_PATH not working
     synchronize: false,
+    migrationsTableName: 'migration',
+    migrations: ['apps/api/src/migration/*.ts'],
+  },
+  cli: {
+    migrationsDir: 'apps/api/src/migrations',
   },
 });

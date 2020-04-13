@@ -9,10 +9,9 @@ import { ShowTodoComponent } from './show-todo/show-todo.component';
 import { MdcModule } from '../../mdc.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SortByDatePipe } from '../../pipes/sort-by-date.pipe';
 
 @NgModule({
-  declarations: [ListTodoComponent, AddTodoComponent, EditTodoComponent, ShowTodoComponent, SortByDatePipe],
+  declarations: [ListTodoComponent, AddTodoComponent, EditTodoComponent, ShowTodoComponent],
   exports: [ListTodoComponent],
   imports: [CommonModule, MdcModule, FlexLayoutModule, TodosRoutingModule, ReactiveFormsModule],
 })

@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MDC_DIALOG_DATA, MdcDialogRef } from '@angular-mdc/web';
+import { Component, OnInit } from '@angular/core';
+import { MdcDialogRef } from '@angular-mdc/web';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'nx-todo-app-add-todo',
@@ -9,20 +10,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddTodoComponent implements OnInit {
   public addForm: FormGroup;
 
-  constructor(
-    private dialogRef: MdcDialogRef<AddTodoComponent>,
-    @Inject(MDC_DIALOG_DATA) public data: any,
-    private formBuilder: FormBuilder,
-  ) {}
-
-  // get the form short name to access the form fields
-  public get f() {
-    return this.addForm.controls;
-  }
+  constructor(private dialogRef: MdcDialogRef<AddTodoComponent>, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.addForm = this.formBuilder.group({
-      date: ['', Validators.required],
+      date: [moment().format('YYYY-MM-DD'), Validators.required],
       label: ['', Validators.required],
       tag: ['', Validators.required],
     });

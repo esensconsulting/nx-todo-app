@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { PostgresTypeOrmConfigService } from './database/services/postgres-type-orm-config.service';
 import configuration from './config/configuration';
+import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
@@ -12,8 +11,8 @@ import configuration from './config/configuration';
       load: [configuration],
     }),
     DatabaseModule,
+    TodoModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, PostgresTypeOrmConfigService],
+  providers: [PostgresTypeOrmConfigService],
 })
 export class AppModule {}

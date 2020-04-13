@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MDC_DIALOG_DATA, MdcDialogRef } from '@angular-mdc/web';
-import { Todo } from '../../../models/todo.model';
+import { Todo } from '@nx-todo-app/api-interfaces';
 
 @Component({
   selector: 'nx-todo-app-show-todo',
@@ -9,11 +9,11 @@ import { Todo } from '../../../models/todo.model';
 export class ShowTodoComponent implements OnInit {
   public todo: Todo = null;
 
-  constructor(private dialogRef: MdcDialogRef<ShowTodoComponent>, @Inject(MDC_DIALOG_DATA) public data: any) {}
+  constructor(private dialogRef: MdcDialogRef<ShowTodoComponent>, @Inject(MDC_DIALOG_DATA) public data: Todo) {}
 
   ngOnInit(): void {
-    if (this.data.hasOwnProperty('todo') && this.data.todo) {
-      this.todo = this.data.todo;
+    if (this.data) {
+      this.todo = this.data;
     } else {
       this.dialogRef.close();
     }
